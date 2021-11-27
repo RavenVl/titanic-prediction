@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Titanic
+{% endblock %}
+
+{% block content %}
+    <h1>Page Titanic prediction</h1>
+    <h3>Get you titanic prediction here</h3>
+    <div> Enter you person, and we make a prediction</div>
+    <form action="{% url 'result_titanic' %}" method="post">
+    {% csrf_token %}
+{#        pclass, sex, age, sibsp, parch, fare, embarked, title#}
+        <label>pclass
+            <input type="text" name="pclass">
+        </label>
+         <label>sex
+            <input type="text" name="sex">
+        </label> <label>age
+            <input type="text" name="age">
+        </label>
+        <br>
+        <label>sibsp
+            <input type="text" name="sibsp">
+        </label>
+         <label>parch
+            <input type="text" name="parch">
+        </label> <label>fare
+            <input type="text" name="fare">
+        </label>
+         <br>
+        <label>embarked
+            <input type="text" name="embarked">
+        </label>
+         <label> title
+            <input type="text" name="title">
+
+        <input type="submit" value="Send">
+    </form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Result predict
+{% endblock %}
+
+{% block content %}
+    <h1>Result</h1>
+    <a href="{% url 'index_titanic' %}">Return home page</a>
+    <div>
+        {{ prediction }}
+    </div>
+{% endblock %}
