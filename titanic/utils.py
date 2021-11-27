@@ -74,13 +74,19 @@ def prediction_model(pclass, sex, age, sibsp, parch, fare, embarked, title):
     prediction = randomforest.predict(x)
     print(prediction[0])
     print(type(prediction[0]))
-    match prediction[0]:
-        case 1:
-            prediction = 'Survive'
-        case 0:
-            prediction = 'Not Survive'
-        case _:
-            prediction = 'Error'
+    # match prediction[0]:
+    #     case 1:
+    #         prediction = 'Survive'
+    #     case 0:
+    #         prediction = 'Not Survive'
+    #     case _:
+    #         prediction = 'Error'
+    if prediction[0]== 1:
+        prediction = 'Survive'
+    elif prediction[0] == 0:
+        prediction = 'Not Survive'
+    else:
+        prediction = 'Error'
     return prediction
 
 
