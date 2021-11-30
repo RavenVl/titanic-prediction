@@ -81,7 +81,7 @@ def prediction_model(pclass, sex, age, sibsp, parch, fare, embarked, title):
     #         prediction = 'Not Survive'
     #     case _:
     #         prediction = 'Error'
-    if prediction[0]== 1:
+    if prediction[0] == 1:
         prediction = 'Survive'
     elif prediction[0] == 0:
         prediction = 'Not Survive'
