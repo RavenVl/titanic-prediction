@@ -18,10 +18,12 @@ from django.urls import path
 from django.urls import include
 from first_app import urls
 from titanic import urls
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('first_app.urls')),
-    path('titanic/', include('titanic.urls'))
+                  path('admin/', admin.site.urls),
+                  path('', include('first_app.urls')),
+                  path('titanic/', include('titanic.urls'))
 
-]
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
