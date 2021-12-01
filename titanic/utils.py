@@ -72,8 +72,6 @@ def prediction_model(pclass, sex, age, sibsp, parch, fare, embarked, title):
     x = [[pclass, sex, age, sibsp, parch, fare, embarked, title]]
     randomforest = pickle.load(open('titanic_model.sav', 'rb'))
     prediction = randomforest.predict(x)
-    print(prediction[0])
-    print(type(prediction[0]))
     # match prediction[0]:
     #     case 1:
     #         prediction = 'Survive'
