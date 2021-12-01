@@ -1,0 +1,13 @@
+server {
+listen 80;
+server_name 13.53.168.3;
+location = /favicon.ico { access_log off; log_not_found off; }
+location /static/ {
+root /home/ubuntu/titanic-prediction/static_root;
+}
+
+location / {
+include proxy_params;
+proxy_pass http://unix:/home/ubuntu/titanic-prediction/djangoUdemyFullStack.sock;
+}
+}
