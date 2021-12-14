@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'first_app',
-    'titanic'
+    'titanic',
+    'taskManagement'
 ]
 
 MIDDLEWARE = [
@@ -125,6 +126,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
     BASE_DIR / 'first_app' / 'static',
     BASE_DIR / 'titanic' / 'static',
+    BASE_DIR / 'taskManagement' / 'static',
 
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')

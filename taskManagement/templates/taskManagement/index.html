@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block scripts %}
+    <script src="{% static 'taskManagement/main.js'%}" defer></script>
+{% endblock %}
+{% block title %}
+Task Managements
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <div class="row justify-content-sm-center">
+        <div class="col col-sm-3">
+            <h2>New task</h2>
+         <form method="post" action="">
+             {% csrf_token %}
+              <div class="mb-3">
+                <label for="task-label" class="form-label">Task</label>
+                <input type="text" class="form-control" id="task-label" aria-describedby="task-label" name="title">
+                <div id="taskHelp" class="form-text">Enter task name</div>
+              </div>
+              <label for="task-priority" class="form-label">Enter Task priority</label>
+                <input class="form-control" list="datalistOptions" id="task-priority" placeholder="Task priority" name="priority">
+                <datalist id="datalistOptions">
+                  <option value="LOW">
+                  <option value="MEDIUM">
+                  <option value="High">
+                </datalist>
+              <div class="mb-3 form-check mt-3">
+                <input type="checkbox" class="form-check-input" id="complete" name="complete">
+                <label class="form-check-label" for="complete">Task Complete?</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Save Task</button>
+        </form>
+        </div>
+        </div>
+    </div>
+    <div class="row justify-content-sm-center md-5">
+        <div class="col col-sm-6">
+        <form action="" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="_method" value="PUT">
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Task name</th>
+                      <th scope="col">Priority</th>
+                      <th scope="col">Done</th>
+                    </tr>
+                </thead>
+              <tbody>
+                {% for task in tasks %}
+                <tr>
+                  <th scope="row">{{ task.id }}</th>
+                  <td>{{ task.title }}</td>
+                  <td>{{ task.priority }}</td>
+                  <td>{{ task.done }}</td>
+                  <td><button class="btn btn-danger" type="submit" name="btn{{ task.id }}" value="btn{{ task.id }}">Delete</button></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+        </form>
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <div class="alert alert-success" role="alert">
+                    <h3 class="alert-heading">{{message}}</h3>
+                    </div>
+                {% endif %} 
+                {% if message.tags == 'info' %}
+                    <div class="alert alert-danger" role="alert">
+                    <h3 class="alert-heading">{{message}}</h3>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+
+        {% endif %}
+         </div>
+    </div>
+
+{% endblock %}
+

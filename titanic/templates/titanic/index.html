@@ -8,7 +8,7 @@
     <h1>Page Titanic prediction</h1>
     <h3>Get you titanic prediction here</h3>
     <div> Enter you person, and we make a prediction</div>
-    <form action="{% url 'result_titanic' %}" method="post">
+    <form action="{% url 'titanic:result_titanic' %}" method="post">
     {% csrf_token %}
 {#        pclass, sex, age, sibsp, parch, fare, embarked, title#}
         <label>pclass

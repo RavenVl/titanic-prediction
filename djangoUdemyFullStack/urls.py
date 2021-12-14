@@ -18,11 +18,13 @@ from django.urls import path
 from django.urls import include
 from first_app import urls
 from titanic import urls
+from taskManagement import urls
 
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('', include('first_app.urls')),
                   path('titanic/', include('titanic.urls')),
+                  path('management/', include('taskManagement.urls')),
 
               ]

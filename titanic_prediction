@@ -11,3 +11,5 @@ include proxy_params;
 proxy_pass http://unix:/home/ubuntu/titanic-prediction/djangoUdemyFullStack.sock;
 }
 }
+
+sudo ln -s /etc/nginx/sites-available/titanic_prediction /etc/nginx/sites-enabled
